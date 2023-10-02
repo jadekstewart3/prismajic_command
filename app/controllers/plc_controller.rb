@@ -1,11 +1,11 @@
 class PLCController < ApplicationController
 
-  def send_command(command)
-    plc_ip = "192.168.10.21"
-    plc_port = 5002
-    # command = "incoming"
+  def send_udp_command_to_plc
+    plc_port = PlcPort.find(params[:plc_port_id])
+    udp_command = params[:udp_command]
 
-    plc_communicator = PLCService.new(plc_ip, plc_port)
-    plc_communicator.send_udp_command(command)
+    PLCCommunicationService.send_udp_command(plc_port, udp_command)
+
+    #redirect to whereever the fuck flash[:success] = "Command send successfully!"
   end
 end
