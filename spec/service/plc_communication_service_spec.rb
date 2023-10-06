@@ -1,11 +1,12 @@
-require 'rails_helper'
-require 'socket'
+# require 'rails_helper'
+# require 'socket'
 
 # RSpec.describe "PLC Service" do 
-#   # let(:plc_port_1) { PlcPort.new(name: "Prismajic", ip_address: "192.168.10.21", port: 5002) }
+#   let(:playground) { Plc.new(name: "playground", ip_address: "192.168.10.21") }
+#   let(:playground_port_1) { Port.new(description: "led port", port_number: 5002, plc_id: playground.id)}
 
 #   it "sends a UDP comand to the PLC" do 
-#    udp_socket = UDPSocket.new
+#     udp_socket = UDPSocket.new
 #     command = "incoming"
 
 #     expect(udp_socket).to recieve(:send).with(command, 0, plc_port_1.ip_address, plc_port.port)
