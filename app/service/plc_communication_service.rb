@@ -8,7 +8,7 @@ class PlcCommunicationService
     @port_number = port_number
   end
 
-  def self.send_udp_command(udp_command)
+  def send_udp_command(udp_command)
     udp_socket = UDPSocket.new(Socket::AF_INET)
 
     begin
