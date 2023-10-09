@@ -1,6 +1,6 @@
 <%= form_with url: send_command_path, method: :post do |form|%>
   <%= form.hidden_field :plc_id, value: @plc.id %>
-  <%= form.label :port_id, "Port" %>
+  <%= form.label :port_id, "Port:" %>
   <%= form.collection_select :port_id, @ports.each { |port| port.description }, :id, :description, :prompt => "Select a Port"%>
   <%= form.radio_button :udp_command, "On" %>
   <%= form.label :udp_command, "On" %>

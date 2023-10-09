@@ -1,5 +1,4 @@
 require "socket"
-
 class PlcController < ApplicationController
 
   def show
