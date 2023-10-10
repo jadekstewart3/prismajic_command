@@ -2,9 +2,9 @@
   <%= form.hidden_field :plc_id, value: @plc.id %>
   <%= form.label :port_id, "Port:" %>
   <%= form.collection_select :port_id, @ports.each { |port| port.description }, :id, :description, :prompt => "Select a Port"%>
-  <%= form.radio_button :udp_command, "On" %>
+  <%= form.radio_button :udp_command, "1" %>
   <%= form.label :udp_command, "On" %>
-  <%= form.radio_button :udp_command, "Off" %>
+  <%= form.radio_button :udp_command, "0" %>
   <%= form.label :udp_command, "Off" %>
   <%= form.submit "Submit" %>
 <% end %>
