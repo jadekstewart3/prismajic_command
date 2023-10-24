@@ -1,0 +1,8 @@
+<%= form_with model: @plc do |form| %>
+<div class="field">
+  <%=  form.label :name, "Name:"%>
+  <%=  form.text_field :name %>
+  <%= form.label :ip_address, "IP Address:" %>
+  <%= form.text_field :ip_address %>
+  <%= form.submit "Create" %>
+<% end %>
