@@ -11,14 +11,7 @@ class PlcCommunicationService
   def send_udp_command(udp_command)
     udp_socket = UDPSocket.new(Socket::AF_INET)
 
-    begin
-      udp_socket.send(udp_command, 0, @plc_ip, @port_number)
-
-      puts "Command sent successfully to #{@plc_ip}:#{@plc_port}: #{udp_command}!"
-    rescue => e
-      puts "Error #{e.message}"
-    ensure
-      udp_socket.close
-    end
+    udp_socket.send(udp_command, 0, @plc_ip, @port_number)
+    udp_socket.close
   end
 end

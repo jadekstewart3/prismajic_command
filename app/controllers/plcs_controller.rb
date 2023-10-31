@@ -23,6 +23,7 @@ class PlcsController < ApplicationController
     end
   end
 
+  #Future Jade: this is where error handling needs to happen
   def send_udp_command_to_plc
     plc = Plc.find(params[:plc_id])
     plc_port = Port.find(params[:port_id])
@@ -32,7 +33,7 @@ class PlcsController < ApplicationController
     plc_service.send_udp_command(udp_command)
 
     redirect_to plc_path(plc.id) 
-    flash[:success] = "Command send successfully!"
+    flash[:success] = "Command sent successfully!"
   end
 
   private
