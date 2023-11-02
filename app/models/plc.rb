@@ -17,6 +17,5 @@ class Plc < ApplicationRecord
     ipv4_regex = /\A\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/
     ipv6_regex = /\A([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}\z/
     ip =~ ipv4_regex || ip =~ ipv6_regex
-    #=~ used for pattern matching to check if a reg expression matches a string
   end
 end
