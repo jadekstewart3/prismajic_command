@@ -16,10 +16,12 @@ RSpec.describe "Send Command" do
           expect(page).to have_content("Command sent successfully!")
         end
       end
-      
-      context "When unsuccessful" do
-        it "displays an error message if a port was not selected" do 
 
+      context "When unsuccessful" do
+        xit "displays an error message if a port was not selected" do 
+          choose(:udp_command_1)
+          click_button "Submit"
+          expect(page).to have_content("Please select a port.")
         end
       end
     end
