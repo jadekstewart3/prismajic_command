@@ -6,3 +6,4 @@ Rails.application.routes.draw do
   resources :plcs
   post "/send_command", to: "plcs#send_udp_command_to_plc"
 end
+ 
