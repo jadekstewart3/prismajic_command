@@ -4,5 +4,18 @@
   <%=  form.text_field :name %>
   <%= form.label :ip_address, "IP Address:" %>
   <%= form.text_field :ip_address %>
+
+</div>
+
+  <%= form.fields_for :ports do |port_fields| %>
+<div class="port_fields">
+    <%= port_fields.label :description, "Description:" %>
+    <%= port_fields.text_field :description %>
+    <%= port_fields.label :port_number, "Port Number:" %>
+    <%= port_fields.text_field :port_number %>
+  <button type="button" class="remove_port"> Remove Port </button>
+  <% end %>
+</div>
   <%= form.submit "Create" %>
+  <button type="button" id="add port">Add Port</button>
 <% end %>
