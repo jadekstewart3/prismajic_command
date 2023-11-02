@@ -5,14 +5,19 @@ RSpec.describe "Create PLC" do
     context "When I visit the '/plc/new'" do 
       context "When successful" do 
         it "fills in the form to create a new plc" do 
+          
           name = "Tree Branch"
-          ip_address = "192.168.10.22"
+          ip_address = "192.168.10.23"
+          description = "shaky shaky"
+          port_number = "5002"
 
           visit new_plc_path
       
           fill_in :plc_name, with: name 
           fill_in :plc_ip_address, with: ip_address
-
+          fill_in "Description:", with: description
+          fill_in "Port Number:", with: port_number
+          
           click_button "Create"
 
           new_plc = Plc.last
