@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :plcs
-  post "/send_command", to: "plcs#send_udp_command_to_plc"
+  post "/send_command", to: "plcs#send_modbus_command_to_plc"
 end
  
