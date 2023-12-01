@@ -27,9 +27,10 @@ class PlcsController < ApplicationController
     begin
       plc = Plc.find(params[:plc_id])
       plc_port = Port.find(params[:port_id])
+      plc_coil = Coil.find(params[:coil_address])
       modbus_command = params[:modbus_command]
 
-      plc_service = PlcCommunicationService.new(plc.ip_address, plc_port.port_number)
+      plc_service = PlcCommunicationService.new(plc.ip_address, plc_port.port_number, plc_coil)
       plc_service.send_modbus_command(modbus_command)
 
       flash[:success] = "Command sent successfully!"
