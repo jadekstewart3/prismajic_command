@@ -6,15 +6,13 @@ class PlcCommunicationService
   def initialize(plc_ip, port_number)
     @plc_ip = plc_ip
     @port_number = port_number
-    @udp_socket = UDPSocket.new(Socket::AF_INET)
-    @udp_socket.bind('0.0.0.0', 0)
+    @udp_socket = TCPSocket.new(@plc_ip, @port_number)
   end
 
-  def send_udp_command(udp_command)
-    @udp_socket.send(udp_command, 0, @plc_ip, @port_number)
-  #   response, sender = @udp_socket.recvfrom(1024)
-  #   return response
-  # ensure
-    @udp_socket.close
+  def send_modbus_command(modbus_command)
+    modbus_client = ModBus::TCPClient.new(@plc_ip, @port_number)
+    response = modbus_client.read_holding_registers(modbus_command[:address], modbus_command[:quantity])
+    modbus_client.close
+    response
   end
 end

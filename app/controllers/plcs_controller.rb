@@ -1,4 +1,5 @@
 require "socket"
+
 class PlcsController < ApplicationController
 
   def show
@@ -22,15 +23,14 @@ class PlcsController < ApplicationController
     end
   end
 
-  #Future Jade: this is where error handling needs to happen
-  def send_udp_command_to_plc
+  def send_modbus_command_to_plc
     begin
       plc = Plc.find(params[:plc_id])
       plc_port = Port.find(params[:port_id])
-      udp_command = params[:udp_command]
+      modbus_command = params[:modbus_command]
 
       plc_service = PlcCommunicationService.new(plc.ip_address, plc_port.port_number)
-      plc_service.send_udp_command(udp_command)
+      plc_service.send_modbus_command(modbus_command)
 
       flash[:success] = "Command sent successfully!"
     rescue ActiveRecord::RecordNotFound
