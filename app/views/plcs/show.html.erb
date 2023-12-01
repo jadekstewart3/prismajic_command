@@ -2,6 +2,9 @@
   <%= form.hidden_field :plc_id, value: @plc.id %>
   <%= form.label :port_id, "Port:" %>
   <%= form.collection_select :port_id, @ports.each { |port| port.description }, :id, :description, :prompt => "Select a Port"%>
+  <%= form.label :coil_address, "Coil Address (e.g., 100-200):" %>
+  <%= form.text_field :coil_address %>
+  <!--this will likely change think of ways to make the coil address more user friendly-->
   <%= form.radio_button :modbus_command, "1" %>
   <%= form.label :modbus_command, "On" %>
   <%= form.radio_button :modbus_command, "0" %>
